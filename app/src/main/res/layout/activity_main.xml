@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ConsLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,19 +8,19 @@
 
 
     <Button
-        android:onClick="pdfApp"
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Button" />
-
+        android:onClick="pdfApp"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        tools:text="Crear Documento" />
 
     <Button
-        android:onClick="sendEmail"
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Button2" />
-</LinearLayout>
+        android:onClick="sendEmail"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        tools:text="Compartir Documento" />
+
+</ConsLayout>

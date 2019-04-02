@@ -40,7 +40,8 @@ public class TemplatePDF {
     //METODO PARA ABRIR EL DOCUMENTO
     public void abrirDocumento() {
 
-        crearPDF();
+           crearPDF();
+
         try {
 
             documento = new Document(PageSize.A4);
@@ -53,7 +54,7 @@ public class TemplatePDF {
     }
 
     //METODO PARA CREAR EL DOCUMENTO
-    private void crearPDF() {
+    public void crearPDF() {
 
         File folder = new File(Environment.getExternalStorageDirectory().toString(), "PDF");
 

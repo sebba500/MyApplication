@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="button">Button</string>
+    <string name="button2">Button2</string>
+    <string name="compartir_documento">Compartir documento</string>
+    <string name="crear_pdf">Crear PDF</string>
+    <string name="crear_documento">Crear documento</string>
 </resources>

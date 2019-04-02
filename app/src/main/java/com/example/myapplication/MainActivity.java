@@ -1,7 +1,11 @@
 package com.example.myapplication;
 
+import android.annotation.SuppressLint;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -10,7 +14,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.itextpdf.text.BadElementException;
+
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -28,7 +36,9 @@ public class MainActivity extends AppCompatActivity {
 
 
     private TemplatePDF templatePDF;
+    private Intent emailIntent;
 
+    @SuppressLint("WrongThread")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,10 +50,23 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        boton =(Button)findViewById(R.id.button);
-        final TemplatePDF templatePDF = new TemplatePDF(getApplicationContext());
-        templatePDF.abrirDocumento();
 
+
+
+
+
+
+
+    }
+
+    public void pdfApp(View view) {
+
+
+
+        final TemplatePDF templatePDF = new TemplatePDF(getApplicationContext());
+
+
+        templatePDF.abrirDocumento();
 
         templatePDF.addTitles("ORDEN DE TRABAJO","N°000001");
 
@@ -56,17 +79,19 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    }
 
-    public void pdfApp(View view) {
         if (TemplatePDF.archivoPDF.exists()) {
             Uri uri = Uri.fromFile(TemplatePDF.archivoPDF);
             Intent intent = new Intent(Intent.ACTION_VIEW);
             intent.setDataAndType(uri, "application/pdf");
             try {
                 startActivity(intent);
+
+
+
+
             } catch (ActivityNotFoundException e) {
-               startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.adobe.reader")));
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.adobe.reader")));
                 Toast.makeText(getApplicationContext(), "No cuentas con una aplicacion para visualizar pdf", Toast.LENGTH_LONG).show();
             }
         } else {
@@ -74,18 +99,18 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
     public void sendEmail(View view) {
-        String[] TO = {"nachohernanloyo@gmail.com"}; //aquí pon tu correo
+        String[] correo = {""};
         String[] CC = {""};
         Intent emailIntent = new Intent(Intent.ACTION_SEND);
         Uri uri =Uri.fromFile((new File(Environment.getExternalStorageDirectory().getAbsolutePath(),"/PDF/OrdenDeTrabajo.pdf")));
         emailIntent.setData(Uri.parse("mailto:"));
         emailIntent.setType("text/plain");
-        emailIntent.putExtra(Intent.EXTRA_EMAIL, TO);
+        emailIntent.putExtra(Intent.EXTRA_EMAIL, correo);
         emailIntent.putExtra(Intent.EXTRA_CC, CC);
-// Esto podrás modificarlo si quieres, el asunto y el cuerpo del mensaje
-        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Asunto");
-        emailIntent.putExtra(Intent.EXTRA_TEXT, "Escribe aquí tu mensaje");
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Orden de Trabajo");
+        emailIntent.putExtra(Intent.EXTRA_TEXT, "");
         emailIntent.putExtra(Intent.EXTRA_STREAM,uri);
 
         try {
