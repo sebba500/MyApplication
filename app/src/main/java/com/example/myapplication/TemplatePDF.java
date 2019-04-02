@@ -1,13 +1,8 @@
 package com.example.myapplication;
 
-import android.app.Activity;
-import android.content.ActivityNotFoundException;
 import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Environment;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
@@ -86,6 +81,7 @@ public class TemplatePDF {
             Log.e("addTitles", e.toString());
         }
     }
+
 
 
 
