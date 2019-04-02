@@ -12,6 +12,8 @@ import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.RadioButton;
 import android.widget.Toast;
 
 import com.itextpdf.text.BadElementException;
@@ -28,31 +30,21 @@ public class MainActivity extends AppCompatActivity {
     private String dEmpresa="DIRECCION EMPRESA: ";
     private String fecha="FECHA: ";
     private String rbd="RBD: ";
-    private Button  boton;
-
-
-
-
-
 
     private TemplatePDF templatePDF;
-    private Intent emailIntent;
+    private CheckBox checkBox1;
+
+
+
+
+
+
 
     @SuppressLint("WrongThread")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
-
-
-
-
-
-
-
-
 
 
 
