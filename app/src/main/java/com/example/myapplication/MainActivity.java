@@ -13,19 +13,24 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
     private String[]header={"Control de Roedores","Control de Insectos","Control de Microorganismos"};
-    private String nEmpresa="NOMBRRE EMPRESA: ";
-    private String dEmpresa="DIRECCION EMPRESA: ";
-    private String fecha="FECHA: ";
-    private String rbd="RBD: ";
+
 
     private TemplatePDF templatePDF;
     private CheckBox checkBox1;
     private EditText eNombreEmpresa,eDireccionEmpresa,eRBD;
+
+    SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
+    Date date = new Date();
+
+    String fecha = dateFormat.format(date);
 
 
 
@@ -65,10 +70,10 @@ public class MainActivity extends AppCompatActivity {
 
             templatePDF.addTitles("ORDEN DE TRABAJO", "N°000001");
 
-            templatePDF.addParagraph(nEmpresa);
-            templatePDF.addParagraph(dEmpresa);
-            templatePDF.addParagraph(fecha);
-            templatePDF.addParagraph(rbd);
+            templatePDF.addParagraph("NOMBRE EMPRESA: "+eNombreEmpresa.getText().toString());
+            templatePDF.addParagraph("DIRECCION EMPRESA: "+eDireccionEmpresa.getText().toString());
+            templatePDF.addParagraph("FECHA: "+ fecha); // FALTA CAPTURAR FECHA ACTUAL
+            templatePDF.addParagraph("RBD: "+eRBD.getText().toString());
             templatePDF.createTable(header, getClients());
             templatePDF.closeDocument();
 
