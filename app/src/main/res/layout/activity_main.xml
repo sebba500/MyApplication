@@ -37,7 +37,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/editTextNombreEmpresa"
+                android:id="@+id/EditTextNombreEmpresa"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:autofillHints=""
@@ -117,7 +117,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="5dp"/>
 
-            <RadioButton
+            <CheckBox
                 android:id="@+id/RBpe"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -125,14 +125,14 @@
                 android:clickable="true"
                 android:text="Perimetro Exterior" />
 
-            <RadioButton
+            <CheckBox
                 android:id="@+id/RBpi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:clickable="true"
                 android:text="Perimetro Interior" />
 
-            <RadioButton
+            <CheckBox
                 android:id="@+id/RBb"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -150,20 +150,20 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="5dp"/>
 
-            <RadioButton
+            <CheckBox
                 android:id="@+id/RBext"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="Exterior" />
 
-            <RadioButton
+            <CheckBox
                 android:id="@+id/RBint"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Interior" />
 
-            <RadioButton
+            <CheckBox
                 android:id="@+id/RBbo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -180,20 +180,20 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="5dp"/>
 
-            <RadioButton
+            <CheckBox
                 android:id="@+id/RBsha"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="Serv. Hig. Adm." />
 
-            <RadioButton
+            <CheckBox
                 android:id="@+id/RBshc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Serv. Hig. Camarines" />
 
-            <RadioButton
+            <CheckBox
                 android:id="@+id/RBcamF"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -213,20 +213,20 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="5dp"/>
 
-            <RadioButton
+            <CheckBox
                 android:id="@+id/RBbroma"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="Bromadiolona" />
 
-            <RadioButton
+            <CheckBox
                 android:id="@+id/RBtrampa"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Trampa Captura Viva" />
 
-            <RadioButton
+            <CheckBox
                 android:id="@+id/RBnotoxico"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -245,26 +245,26 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="5dp"/>
 
-            <RadioButton
+            <CheckBox
                 android:id="@+id/RBCipermetrina"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="Cipermetrina 25%" />
 
-            <RadioButton
+            <CheckBox
                 android:id="@+id/RBDeltametrina"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Deltametrina" />
 
-            <RadioButton
+            <CheckBox
                 android:id="@+id/RBAquatrin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Aquatrin" />
 
-            <RadioButton
+            <CheckBox
                 android:id="@+id/RBAgita"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -284,7 +284,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="5dp"/>
 
-            <RadioButton
+            <CheckBox
                 android:id="@+id/RBSanicitrex"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

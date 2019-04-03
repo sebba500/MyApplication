@@ -3,24 +3,16 @@ package com.example.myapplication;
 import android.annotation.SuppressLint;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.RadioButton;
+import android.widget.EditText;
 import android.widget.Toast;
 
-import com.itextpdf.text.BadElementException;
-
-import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -33,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
     private TemplatePDF templatePDF;
     private CheckBox checkBox1;
+    private EditText eNombreEmpresa,eDireccionEmpresa,eRBD;
 
 
 
@@ -49,45 +42,52 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
     }
 
     public void pdfApp(View view) {
 
 
+        this.eNombreEmpresa=findViewById(R.id.EditTextNombreEmpresa);
+        this.eDireccionEmpresa=findViewById(R.id.EditTextDireccionEmpresa);
+        this.eRBD=findViewById(R.id.EditTextRBD);
 
-        final TemplatePDF templatePDF = new TemplatePDF(getApplicationContext());
+        if (eNombreEmpresa.getText().toString().isEmpty()){
+            Toast.makeText(getApplicationContext(), "Es necesario el Nombre de la empresa", Toast.LENGTH_SHORT).show();
+        }else if (eDireccionEmpresa.getText().toString().isEmpty()){
+            Toast.makeText(getApplicationContext(), "Es necesario ingresar Dirección de la empresa", Toast.LENGTH_SHORT).show();
+        }else {
 
-
-        templatePDF.abrirDocumento();
-
-        templatePDF.addTitles("ORDEN DE TRABAJO","N°000001");
-
-        templatePDF.addParagraph(nEmpresa);
-        templatePDF.addParagraph(dEmpresa);
-        templatePDF.addParagraph(fecha);
-        templatePDF.addParagraph(rbd);
-        templatePDF.createTable(header,getClients());
-        templatePDF.closeDocument();
+            final TemplatePDF templatePDF = new TemplatePDF(getApplicationContext());
 
 
+            templatePDF.abrirDocumento();
+
+            templatePDF.addTitles("ORDEN DE TRABAJO", "N°000001");
+
+            templatePDF.addParagraph(nEmpresa);
+            templatePDF.addParagraph(dEmpresa);
+            templatePDF.addParagraph(fecha);
+            templatePDF.addParagraph(rbd);
+            templatePDF.createTable(header, getClients());
+            templatePDF.closeDocument();
 
 
-        if (TemplatePDF.archivoPDF.exists()) {
-            Uri uri = Uri.fromFile(TemplatePDF.archivoPDF);
-            Intent intent = new Intent(Intent.ACTION_VIEW);
-            intent.setDataAndType(uri, "application/pdf");
-            try {
-                startActivity(intent);
+            if (TemplatePDF.archivoPDF.exists()) {
+                Uri uri = Uri.fromFile(TemplatePDF.archivoPDF);
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setDataAndType(uri, "application/pdf");
+                try {
+                    startActivity(intent);
 
 
-
-
-            } catch (ActivityNotFoundException e) {
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.adobe.reader")));
-                Toast.makeText(getApplicationContext(), "No cuentas con una aplicacion para visualizar pdf", Toast.LENGTH_LONG).show();
+                } catch (ActivityNotFoundException e) {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.adobe.reader")));
+                    Toast.makeText(getApplicationContext(), "No cuentas con una aplicacion para visualizar pdf", Toast.LENGTH_LONG).show();
+                }
+            } else {
+                Toast.makeText(getApplicationContext(), "No se encontro el archivo", Toast.LENGTH_LONG).show();
             }
-        } else {
-            Toast.makeText(getApplicationContext(), "No se encontro el archivo", Toast.LENGTH_LONG).show();
         }
     }
 
