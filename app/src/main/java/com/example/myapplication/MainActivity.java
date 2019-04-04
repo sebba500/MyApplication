@@ -68,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
 
             templatePDF.abrirDocumento();
 
+            templatePDF.addMetaData("Titulo","Tema","Autor");
             templatePDF.addTitles("ORDEN DE TRABAJO", "N°000001");
 
             templatePDF.addParagraph("NOMBRE EMPRESA: "+eNombreEmpresa.getText().toString());

@@ -67,6 +67,11 @@ public class TemplatePDF {
         documento.close();
     }
 
+    public void addMetaData(String title, String subject, String autor){
+        documento.addTitle(title);
+        documento.addSubject(subject);
+        documento.addAuthor(autor);
+    }
 
     public void addTitles(String title, String subTitle) {
 
